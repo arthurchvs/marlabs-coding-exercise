@@ -45,7 +45,7 @@ public class CheckAnswerUseCaseTest {
 
     @ParameterizedTest
     @MethodSource("arguments")
-    public void testCheckAnswerNotInCache(String questionInput, Integer answerInput, Boolean expectedResult) {
+    public void testCheckAnswerNotInCache(String questionInput, Integer answerInput) {
         when(questionsCache.contains(questionInput)).thenReturn(false);
         assertThrows(QuestionNotFoundException.class, () -> checkAnswerUseCase.checkAnswer(questionInput, answerInput));
     }
